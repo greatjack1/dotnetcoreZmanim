@@ -7,8 +7,8 @@ using zmanimapi.Views;
 
 namespace zmanimapi.Controllers
 {
-    [Route("api/[controller]")]
-    public class ValuesController : Controller
+    [Route("[controller]")]
+    public class ApiController : Controller
     {
      
         public String Details(String date, String timezone, double latitude, double longitude, int elevation, String format) 
