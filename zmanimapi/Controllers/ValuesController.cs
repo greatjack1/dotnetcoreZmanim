@@ -34,8 +34,8 @@ namespace zmanimapi.Controllers
             }
 
             //create a general try catch to prevent major errors
-            try
-           {
+     //       try
+    //       {
                 
                 //create a model to pass to the zmanimService
                 ZmanimModel model = new ZmanimModel();
@@ -53,20 +53,22 @@ namespace zmanimapi.Controllers
                 format = "json";
             }
                 //pass the model to the view and return the view
+            //choose the view based on the format parameter
                 if (format.ToLower() == "xml")
                 {
-                    return "xml format has not been implemented yet";
+                    XmlView view = new XmlView(model.zmanimList);
+                    return view.getView();
                 }
                 else
                 { //use json as the default format
                     JsonView view = new JsonView(model.zmanimList);
                     return view.getView();
                 }
-           } catch(Exception ex){
-               Console.WriteLine("Error:" + ex.Message);
+      //     } catch(Exception ex){
+      //         Console.WriteLine("Error:" + ex.Message);
                 //return a error message
-               return "There was a error generating the zmanim, please ensure all of your input parameters are correct and try again later";
-            }
+       //        return "There was a error generating the zmanim, please ensure all of your input parameters are correct and try again later";
+          //  }
          
        
         }
