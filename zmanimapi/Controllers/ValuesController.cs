@@ -38,8 +38,8 @@ namespace zmanimapi.Controllers
             }
 
             //create a general try catch to prevent major errors
-         //   try
-          //  {
+            try
+            {
 
                 //create a model to pass to the zmanimService
                 ZmanimModel model = new ZmanimModel();
@@ -72,13 +72,13 @@ namespace zmanimapi.Controllers
                     JsonView view = new JsonView(model.zmanimList);
                     return view.getView();
                 }
-         //   }
-         //   catch (Exception ex)
-        //    {
-          //      Console.WriteLine("Error:" + ex.Message);
+          }
+           catch (Exception ex)
+          {
+               Console.WriteLine("Error:" + ex.Message);
                 //return a error message
-           //     return "There was a error generating the zmanim, please ensure all of your input parameters are correct and try again later";
-       //     }
+                return "There was a error generating the zmanim, please ensure all of your input parameters are correct and try again later";
+           }
 
 
         }
