@@ -11,26 +11,26 @@ namespace zmanimapi.Services
 {
     public class ZmanimService
     {
-        public ZmanimService(DateTime? Date, String Timezone, double Latitude, double Longitude, int Elevation, ZmanimModel model)
+        public ZmanimService(ZmanimModel model)
         {
             String locationName = "Random";
-            double latitude = Latitude;
-            double longitude = Longitude;
-            double elevation = Elevation;
-            ITimeZone timeZone = new WindowsTimeZone(Timezone);
+            double latitude = model.latitude;
+            double longitude = model.longitude;
+            double elevation = model.elevation;
+            ITimeZone timeZone = new WindowsTimeZone(model.timezone);
             GeoLocation location = new GeoLocation(locationName, latitude, longitude,
             elevation, timeZone);
             ComplexZmanimCalendar czc;
             //if Datetime is null so then instantiate the zmanim with todays date
-            if (!Date.HasValue)
+            if (!model.date.HasValue)
             {
                 Console.WriteLine("Date was not submitted so using todays date");
                 czc = new ComplexZmanimCalendar(DateTime.Now, location);
             }
             else
             {
-                Console.WriteLine("Date was submitted so using the date of" + Date.ToString());
-                czc = new ComplexZmanimCalendar(Date.GetValueOrDefault(), location);
+                Console.WriteLine("Date was submitted so using the date of" + model.date.ToString());
+                czc = new ComplexZmanimCalendar(model.date.GetValueOrDefault(), location);
             }
 
             //insert the zmanim into the model so the controller can create a view from it

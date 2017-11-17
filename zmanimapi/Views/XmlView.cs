@@ -2,14 +2,26 @@
 using System.Xml;
 using System.Collections.Generic;
 using System.Text;
+using zmanimapi.Models;
 
 namespace zmanimapi.Views
 {
     public class XmlView : IViewable
     {
         private string _xml;
-        public XmlView(Dictionary<String, DateTime?> zmanim)
+        public XmlView(ZmanimModel model)
         {
+            //create the formatter for the date based on the timeformat in the model
+            String formatter;
+            if (model.timeformat == 24)
+            {
+                formatter = "{0:H:mm:s:tt}";
+            }
+            else
+            {
+                formatter = "{0:h:mm:s:tt}";
+            }
+            Dictionary<String, DateTime?> zmanim = model.zmanimList;
             XmlDocument doc = new XmlDocument();
             //(1) the xml declaration for the top of the documents
             XmlDeclaration xmlDeclaration = doc.CreateXmlDeclaration("1.0", "UTF-8", null);
@@ -28,7 +40,7 @@ namespace zmanimapi.Views
             foreach (KeyValuePair<string, DateTime?> entry in zmanim)
             {
                 XmlElement element = doc.CreateElement(string.Empty, entry.Key, string.Empty);
-                XmlText text = doc.CreateTextNode(String.Format("{0:h:mm:s:tt}", entry.Value));
+                XmlText text = doc.CreateTextNode(String.Format(formatter, entry.Value));
            element.AppendChild(text);
                rootelem.AppendChild(element);
             }

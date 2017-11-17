@@ -3,14 +3,23 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using Newtonsoft.Json;
+using zmanimapi.Models;
 
 namespace zmanimapi.Views
 {
     public class JsonView :IViewable
     {
         private String _Json ="";
-        public JsonView(Dictionary<String,DateTime?> zmanim)
+        public JsonView(ZmanimModel model)
         {
+            //create the formatter for the date based on the timeformat in the model
+            String formatter;
+            if(model.timeformat==24){
+                formatter = "{0:H:mm:s:tt}";
+            } else {
+                formatter = "{0:h:mm:s:tt}"; 
+            }
+            Dictionary<String,DateTime?> zmanim = model.zmanimList;
             StringBuilder sb = new StringBuilder();
             StringWriter sw = new StringWriter(sb);
             using (JsonWriter writer = new JsonTextWriter(sw))
@@ -22,7 +31,7 @@ namespace zmanimapi.Views
                 foreach (KeyValuePair<string, DateTime?> entry in zmanim)
                 {
                     writer.WritePropertyName(entry.Key);
-                    writer.WriteValue(String.Format("{0:h:mm:s:tt}", entry.Value));
+                    writer.WriteValue(String.Format(formatter, entry.Value));
                   }
                 writer.WriteEndObject();
             }

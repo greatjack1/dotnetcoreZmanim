@@ -11,7 +11,7 @@ namespace zmanimapi.Controllers
     public class ApiController : Controller
     {
 
-        public String Details(String date, String timezone, double latitude, double longitude, int elevation, String format)
+        public String Details(String date, String timezone, double latitude, double longitude, double elevation, int timeformat, String format)
         {
             //if any of the parameters are empty then return a error saying parameters are missing
             if (date == "")
@@ -43,18 +43,32 @@ namespace zmanimapi.Controllers
 
                 //create a model to pass to the zmanimService
                 ZmanimModel model = new ZmanimModel();
-                //check if the date is parsable, if its not then pass in null, and the service will use the current date
-                DateTime theDate;
-                if (DateTime.TryParse(date, out theDate))
+                //store the controller params in the model
+                model.latitude = latitude;
+                model.longitude = longitude;
+                model.elevation = elevation;
+                if (timeformat == 24 || timeformat == 12)
                 {
-                    //pass the model into the zmanim service to put the zmanim into the model
-                    ZmanimService service = new ZmanimService(theDate, timezone, latitude, longitude, elevation, model);
+                    model.timeformat = timeformat;
                 }
                 else
                 {
-                    //pass the model into the zmanim service to put the zmanim into the model
-                    ZmanimService service = new ZmanimService(null, timezone, latitude, longitude, elevation, model);
+                    //since the time format is invalid use the default value of 12
+                    model.timeformat = 12;
                 }
+                model.timezone = timezone;
+                //check if the date is parsable, if its not then set the model date to null
+                DateTime theDate;
+                if (DateTime.TryParse(date, out theDate))
+                {
+                    model.date = theDate;
+                }
+                else
+                {
+                    model.date = null;
+                }
+                //now pass the model to the zmanim service
+                ZmanimService service = new ZmanimService(model);
                 //make sure format is instantiated, if its not then instantiate it
                 if (format == null)
                 {
@@ -64,24 +78,25 @@ namespace zmanimapi.Controllers
                 //choose the view based on the format parameter
                 if (format.ToLower() == "xml")
                 {
-                    XmlView view = new XmlView(model.zmanimList);
+                    XmlView view = new XmlView(model);
                     return view.getView();
                 }
                 else
                 { //use json as the default format
-                    JsonView view = new JsonView(model.zmanimList);
+                    JsonView view = new JsonView(model);
                     return view.getView();
                 }
-          }
-           catch (Exception ex)
-          {
-               Console.WriteLine("Error:" + ex.Message);
-                //return a error message
+            }
+            catch (Exception ex)
+            {
+                   Console.WriteLine("Error:" + ex.Message);
+                //     //return a error message
                 return "There was a error generating the zmanim, please ensure all of your input parameters are correct and try again later";
-           }
+            }
 
 
         }
 
     }
+
 }
