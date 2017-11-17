@@ -20,7 +20,7 @@ namespace zmanimapi.Views
             doc.AppendChild(rootelem);
             //create the date element
             XmlElement element1 = doc.CreateElement(string.Empty, "Date", string.Empty);
-            XmlText dateText = doc.CreateTextNode(String.Format("{0:MM/dd/yyyy}", zmanim["Alos"].GetValueOrDefault()));
+            XmlText dateText = doc.CreateTextNode(String.Format("{0:MM/dd/yyyy}", zmanim["Alos16point1Degrees"].GetValueOrDefault()));
             element1.AppendChild(dateText);
             rootelem.AppendChild(element1);
 
@@ -28,7 +28,7 @@ namespace zmanimapi.Views
             foreach (KeyValuePair<string, DateTime?> entry in zmanim)
             {
                 XmlElement element = doc.CreateElement(string.Empty, entry.Key, string.Empty);
-                XmlText text = doc.CreateTextNode(String.Format("{0:h:m:s:tt}", entry.Value));
+                XmlText text = doc.CreateTextNode(String.Format("{0:h:mm:s:tt}", entry.Value));
            element.AppendChild(text);
                rootelem.AppendChild(element);
             }

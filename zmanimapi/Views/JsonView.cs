@@ -18,11 +18,11 @@ namespace zmanimapi.Views
                 writer.WriteStartObject();
                 //write the date of the zmanim as a property in the json
                 writer.WritePropertyName("Date");
-                writer.WriteValue(String.Format("{0:MM/dd/yyyy}", zmanim["Alos"].GetValueOrDefault()));
+                writer.WriteValue(String.Format("{0:MM/dd/yyyy}", zmanim["Alos16point1Degrees"].GetValueOrDefault()));
                 foreach (KeyValuePair<string, DateTime?> entry in zmanim)
                 {
                     writer.WritePropertyName(entry.Key);
-                    writer.WriteValue(String.Format("{0:h:m:s:tt}", entry.Value));
+                    writer.WriteValue(String.Format("{0:h:mm:s:tt}", entry.Value));
                   }
                 writer.WriteEndObject();
             }
