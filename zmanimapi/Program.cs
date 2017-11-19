@@ -19,7 +19,8 @@ namespace zmanimapi
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
+                   .UseStartup<Startup>()
+                   .UseContentRoot(Directory.GetCurrentDirectory())
                 .Build();
     }
 }

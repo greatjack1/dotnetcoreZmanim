@@ -33,8 +33,13 @@ namespace zmanimapi
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseMvc();
+            //enable static files for the help page that will be routed through the controller
+            app.UseStaticFiles();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute("default", "{controller}/{action}");
+                routes.MapRoute("Spa", "{*url}", defaults: new { controller = "Home", action = "Spa" });
+            });
         }
     }
 }

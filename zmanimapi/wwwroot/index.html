@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+        <link rel="stylesheet"
+              type="text/css"
+              href="css/mainstyle.css" />
+         <meta charset="utf-8" />
+        <title>About ZmanimApi</title>
+    </head>
+    <body>
+        <div class="page-header">
+            <h1>ZmanimApi <small>A easy to use web api allowing you to build zmanim into any application</small></h1>
+        </div>
+        <span class="label label-primary"><b>USAGE:</b></span>
+        <span class="label label-primary">The following elements are required to build a url request:</span>
+        <ul class="list-group">
+            <li class="list-group-item">Endpoint: The end point for the ZmanimApi is <a href="https://wyrezmanim.herokuapp.com/api/">https://wyrezmanim.herokuapp.com/api/</a></li>
+        </ul>
+        <span class="label label-primary"> Required Parameters:</span>
+        <ul class="list-group">
+            <li class="list-group-item">Timezone: The time zone for the zmanim request. Example: timezone=America/New_York</li>
+            <li class="list-group-item">Latitude: The latitude of the location for the zmanim. Example: latitude=40.23524</li>
+            <li class="list-group-item">Longitude: The longitude of the location for the zmanim. Example: longitude=-73.27162</li>
+        </ul>
+        <span class="label label-primary"> Optional Parameters:</span>
+        <ul class="list-group">
+            <li class="list-group-item">date: The date to calculate zmanim for,date format must be in month/day/year Example: date=12/5/2017</li>
+            <li class="list-group-item">format: The format of the response, options include xml or json. Example: format=json</li>
+            <li class="list-group-item">elevation: Elevation above sea level in meters of the location. if left out 0 is used. Example: elevation=23</li>
+            <li class="list-group-item">timeformat: Specifies whether the returned time will be in 24hour or 12hour clock formats. Example: timeformat=12</li>
+        </ul>
+        <span class="label label-primary"> Sample Url with all parameters:</span>
+        <ul class="list-group">
+            <li class="list-group-item"><a href="https://wyrezmanim.herokuapp.com/api?timezone=America/New_York&latitude=40&longitude=-73&date=4/2/2018&timeformat=24&elevation=50&format=xml">https://wyrezmanim.herokuapp.com/api?timezone=America/New_York&latitude=40&longitude=-73&date=4/2/2018&timeformat=24&elevation=50&format=xml</a></li>
+              </ul>
+    </body>
+</html>
