@@ -12,7 +12,7 @@ The motivation for this project was from a friend of mine who complained how the
 
 ## Usage
 
-Coming soon
+To use a prehosted version of this app. Go to [https://wyrezmanim.herokuapp.com](https://wyrezmanim.herokuapp.com)
 
 ## Self Hosting
 
