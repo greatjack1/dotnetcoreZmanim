@@ -11,7 +11,7 @@ namespace zmanimapi.Controllers
     public class ApiController : Controller
     {
 
-        public String Details(String date, String timezone, double latitude, double longitude, double elevation, int timeformat, String format)
+        public String Details(String date, String timezone, double latitude, double longitude, double elevation, int timeformat, String format,String mode)
         {
             //if any of the parameters are empty then return a error saying parameters are missing
             if (date == "")
@@ -47,6 +47,7 @@ namespace zmanimapi.Controllers
                 model.latitude = latitude;
                 model.longitude = longitude;
                 model.elevation = elevation;
+                model.mode = mode;
                 if (timeformat == 24 || timeformat == 12)
                 {
                     model.timeformat = timeformat;

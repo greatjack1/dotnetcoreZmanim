@@ -8,6 +8,7 @@ namespace zmanimapi.Models
         {
             
         }
+        public String mode { get; set; }
         public double latitude { get; set; }
         public double longitude { get; set; }
         public int timeformat { get; set; }
