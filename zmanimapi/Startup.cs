@@ -32,6 +32,7 @@ namespace zmanimapi
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseMvc();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -44,7 +45,7 @@ namespace zmanimapi
             app.UseMvc(routes =>
             {
                 routes.MapRoute("default", "{controller}/{action}");
-                routes.MapRoute("Spa", "{*url}", defaults: new { controller = "Home", action = "Spa" });
+                routes.MapRoute("Spa", "{*url}", defaults: new { controller = "Home", action = "Index" });
             });
         }
     }

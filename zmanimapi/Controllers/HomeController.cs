@@ -10,9 +10,9 @@ namespace zmanimapi.Controllers
     public class HomeController : Controller
     {
         // GET: /<controller>/
-        public IActionResult spa()
+        public IActionResult Index()
         {
-            return File("~/index.html","text/html");
+            return View();
         }
     }
 }

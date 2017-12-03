@@ -10,6 +10,8 @@
     <Folder Include="Services\" />
     <Folder Include="Views\" />
     <Folder Include="wwwroot\css\" />
+    <Folder Include="New Folder\" />
+    <Folder Include="Views\Home\" />
   </ItemGroup>
 
   <ItemGroup>
