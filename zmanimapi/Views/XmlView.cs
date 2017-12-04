@@ -15,11 +15,11 @@ namespace zmanimapi.Views
             String formatter;
             if (model.timeformat == 24)
             {
-                formatter = "{0:H:mm:s:tt}";
+                formatter = "{0:H:mm:ss:tt}";
             }
             else
             {
-                formatter = "{0:h:mm:s:tt}";
+                formatter = "{0:h:mm:ss:tt}";
             }
             Dictionary<String, DateTime?> zmanim = model.zmanimList;
             XmlDocument doc = new XmlDocument();
