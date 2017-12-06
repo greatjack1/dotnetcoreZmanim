@@ -13,13 +13,14 @@ namespace zmanimapi.Views
         {
             //create the formatter for the date based on the timeformat in the model
             String formatter;
-            if (model.timeformat == 24)
-            {
-                formatter = "{0:H:mm:ss:tt}";
-            }
-            else
+            //if the time format is blank then use a default formatter with 12 hour view
+            if (model.timeformat is null)
             {
                 formatter = "{0:h:mm:ss:tt}";
+            }
+            else  //since the time format is not blank put it in brackets and set the formatter to it
+            {
+                formatter = "{0:" + model.timeformat + "}";
             }
             Dictionary<String, DateTime?> zmanim = model.zmanimList;
             XmlDocument doc = new XmlDocument();

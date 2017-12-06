@@ -40,7 +40,7 @@
             <li class="list-group-item">date: The date to calculate zmanim for,date format must be in month/day/year Example: date=12/5/2017</li>
             <li class="list-group-item">format: The format of the response, options include xml or json. Example: format=json</li>
             <li class="list-group-item">elevation: Elevation above sea level in meters of the location. if left out 0 is used. Example: elevation=23</li>
-            <li class="list-group-item">timeformat: Specifies whether the returned time will be in 24hour or 12hour clock formats. Example: timeformat=12</li>
+            <li class="list-group-item">timeformat: Specifies the way the zmanim time should be formatted. You can send in any time formatter that is supported by c#. You can follow the guide <a href="https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings">here</a> to learn how to specify a format. Example: timeformat=H:mm:ss</li>
             <li class="list-group-item">mode: By default the api returns many zmanim based on numerous shitas, if you would just like basic zmanim specify the basic mode Example: mode=basic</li>
 
         </ul>

@@ -11,7 +11,7 @@ namespace zmanimapi.Controllers
     public class ApiController : Controller
     {
 
-        public String Details(String date, String timezone, double latitude, double longitude, double elevation, int timeformat, String format,String mode)
+        public String Details(String date, String timezone, double latitude, double longitude, double elevation, String timeformat, String format,String mode)
         {
             //if any of the parameters are empty then return a error saying parameters are missing
             if (date == "")
@@ -38,8 +38,8 @@ namespace zmanimapi.Controllers
             }
 
             //create a general try catch to prevent major errors
-            try
-            {
+           try
+          {
 
                 //create a model to pass to the zmanimService
                 ZmanimModel model = new ZmanimModel();
@@ -48,15 +48,7 @@ namespace zmanimapi.Controllers
                 model.longitude = longitude;
                 model.elevation = elevation;
                 model.mode = mode;
-                if (timeformat == 24 || timeformat == 12)
-                {
-                    model.timeformat = timeformat;
-                }
-                else
-                {
-                    //since the time format is invalid use the default value of 12
-                    model.timeformat = 12;
-                }
+                model.timeformat = timeformat;
                 model.timezone = timezone;
                 //check if the date is parsable, if its not then set the model date to null
                 DateTime theDate;
@@ -89,11 +81,11 @@ namespace zmanimapi.Controllers
                 }
             }
             catch (Exception ex)
-            {
+           {
                    Console.WriteLine("Error:" + ex.Message);
-                //     //return a error message
+                     //return a error message
                 return "There was a error generating the zmanim, please ensure all of your input parameters are correct and try again later";
-            }
+           }
 
 
         }

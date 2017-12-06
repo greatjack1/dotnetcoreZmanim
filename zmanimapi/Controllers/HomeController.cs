@@ -12,6 +12,7 @@ namespace zmanimapi.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
+            
             return View();
         }
     }

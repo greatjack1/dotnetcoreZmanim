@@ -11,7 +11,7 @@ namespace zmanimapi.Models
         public String mode { get; set; }
         public double latitude { get; set; }
         public double longitude { get; set; }
-        public int timeformat { get; set; }
+        public String timeformat { get; set; }
         public String timezone { get; set; }
         public double elevation { get; set; }
         public DateTime? date { get; set; }
