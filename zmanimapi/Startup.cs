@@ -27,6 +27,7 @@ namespace zmanimapi
             //add cors so clients can consume the api with a static page
             services.AddCors();
             services.AddMvc();
+            services.AddRouting();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,10 +45,11 @@ namespace zmanimapi
             app.UseStaticFiles();
             app.UseMvc(routes =>
             {
-               // routes.MapRoute("oldZmanimRoute", "api",defaults: new { controller = "Zmanim", action = "Index" });
-                routes.MapRoute("addApiPrefixroute", "api/{controller}/{action = Index}");
+               routes.MapRoute("NewZmanimRoute", "api/zmanim",defaults: new { controller = "Zmanim", action = "Index" });
+                routes.MapRoute("NewCalendarRoute", "api/calendar", defaults: new { controller = "Calendar", action = "Index" });
+                routes.MapRoute("oldZmanimRoute", "api", defaults: new { controller = "Zmanim", action = "Index" });
                 routes.MapRoute("default", "{controller}/{action}");
-              //  routes.MapRoute("Spa", "{*url}", defaults: new { controller = "Home", action = "Index" });
+                routes.MapRoute("Spa", "{*url}", defaults: new { controller = "Home", action = "Index" });
             });
         }
     }
