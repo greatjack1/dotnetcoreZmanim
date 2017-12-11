@@ -44,8 +44,10 @@ namespace zmanimapi
             app.UseStaticFiles();
             app.UseMvc(routes =>
             {
+               // routes.MapRoute("oldZmanimRoute", "api",defaults: new { controller = "Zmanim", action = "Index" });
+                routes.MapRoute("addApiPrefixroute", "api/{controller}/{action = Index}");
                 routes.MapRoute("default", "{controller}/{action}");
-                routes.MapRoute("Spa", "{*url}", defaults: new { controller = "Home", action = "Index" });
+              //  routes.MapRoute("Spa", "{*url}", defaults: new { controller = "Home", action = "Index" });
             });
         }
     }

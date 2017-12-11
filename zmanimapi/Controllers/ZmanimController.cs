@@ -7,11 +7,11 @@ using zmanimapi.Views;
 
 namespace zmanimapi.Controllers
 {
-    [Route("[controller]")]
-    public class ApiController : Controller
+  //  [Route("[controller]")]
+    public class ZmanimController : Controller
     {
 
-        public String Details(String date, String timezone, double latitude, double longitude, double elevation, String timeformat, String format,String mode)
+        public String Index(String date, String timezone, double latitude, double longitude, double elevation, String timeformat, String format,String mode)
         {
             //if any of the parameters are empty then return a error saying parameters are missing
             if (date == "")

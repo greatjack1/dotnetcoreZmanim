@@ -18,17 +18,13 @@ namespace zmanimapi.Services
             GeoLocation location = new GeoLocation(locationName, latitude, longitude,
             elevation, timeZone);
             ComplexZmanimCalendar czc;
-            //if Datetime is null so then instantiate the zmanim with todays date
+            //if the models date is null then set the models date to today
             if (!model.date.HasValue)
             {
-                Console.WriteLine("Date was not submitted so using todays date");
-                czc = new ComplexZmanimCalendar(DateTime.Now, location);
+                model.date = DateTime.Now;
             }
-            else
-            {
                 Console.WriteLine("Date was submitted so using the date of" + model.date.ToString());
                 czc = new ComplexZmanimCalendar(model.date.GetValueOrDefault(), location);
-            }
             //If the request wanted basic mode then use basic zmanim, else print everything
             if (model.mode == "basic") { 
                 //insert the zmanim into the model so the controller can create a view from it
