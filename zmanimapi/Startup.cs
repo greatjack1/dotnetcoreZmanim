@@ -48,8 +48,11 @@ namespace zmanimapi
                routes.MapRoute("NewZmanimRoute", "api/zmanim",defaults: new { controller = "Zmanim", action = "Index" });
                 routes.MapRoute("NewCalendarRoute", "api/calendar", defaults: new { controller = "Calendar", action = "Index" });
                 routes.MapRoute("oldZmanimRoute", "api", defaults: new { controller = "Zmanim", action = "Index" });
-                routes.MapRoute("default", "{controller}/{action}");
-                routes.MapRoute("Spa", "{*url}", defaults: new { controller = "Home", action = "Index" });
+                routes.MapRoute("MainHelpRoute", "help", defaults: new { controller = "Help", action = "Help" });
+                routes.MapRoute("ZmanimHelp", "help/zmanim", defaults: new { controller = "Help", action = "ZmanimHelp" });
+                routes.MapRoute("CalendarHelp", "help/calendar", defaults: new { controller = "Help", action = "CalendarHelp" });
+         //       routes.MapRoute("default", "{controller}/{action}");
+                routes.MapRoute("Spa", "{*url}", defaults: new { controller = "Help", action = "Help" });
             });
         }
     }

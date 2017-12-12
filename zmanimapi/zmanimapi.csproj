@@ -11,7 +11,7 @@
     <Folder Include="Views\" />
     <Folder Include="wwwroot\css\" />
     <Folder Include="New Folder\" />
-    <Folder Include="Views\Home\" />
+    <Folder Include="Views\Help\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,0 +1,43 @@
+﻿<html>
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110068547-1"></script>
+        <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-110068547-1');
+        </script>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+        <link rel="stylesheet"
+              type="text/css"
+              href="css/mainstyle.css" />
+         <meta charset="utf-8" />
+        <title>About ZmanimApi</title>
+    </head>
+    <body>
+        <div class="page-header">
+            <h1 class="h1">Jewish Calendar Api <small>A easy to use web api allowing you to build Jewish Calendar Functions into any application</small></h1>
+        </div>
+        <span class="label label-primary"><b>USAGE:</b></span>
+        <span class="label label-primary">The following elements are required to build a url request:</span>
+        <ul class="list-group">
+            <li class="list-group-item">Endpoint: The end point for the Jewish Calendar Api is <a href="https://wyrezmanim.herokuapp.com/api/calendar">https://wyrezmanim.herokuapp.com/api/calendar</a></li>
+        </ul>
+        <span class="label label-primary"> Required Parameters:</span>
+        <ul class="list-group">
+            <li class="list-group-item">Date: The Date to generate Jewish calendar data for. Example: date=11/2/2014</li>
+            <li class="list-group-item">IsIsrael: Boolean value indicating if the location you are requesting calendar data for is israel. Example: isIsrael=false</li>
+          </ul>
+        <span class="label label-primary"> Optional Parameters:</span>
+        <ul class="list-group">
+            <li class="list-group-item">Format: The format the calendar data should be returned in. Valid values are Json or xml. Default is json Example: format=xml</li>
+        </ul>
+        <span class="label label-primary"> Sample Url with all parameters:</span>
+        <ul class="list-group">
+            <li class="list-group-item"><a href="https://wyrezmanim.herokuapp.com/api/calendar?date=11/2/2014&isIsrael=false&format=xml">https://wyrezmanim.herokuapp.com/api/calendar?date=11/2/2014&isIsrael=false&format=xml</a></li>
+              </ul>
+    </body>
+</html>

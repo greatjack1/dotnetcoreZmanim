@@ -1,0 +1,32 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<html>
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110068547-1"></script>
+        <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-110068547-1');
+        </script>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+        <link rel="stylesheet"
+              type="text/css"
+              href="css/mainstyle.css" />
+         <meta charset="utf-8" />
+        <title>About ZmanimApi</title>
+    </head>
+    <body>
+		<div>
+        <div class="page-header">
+            <h1 class="h1">Api help <small>Click on a button to get help on that API</small></h1>
+        </div>
+		<div>
+   <a asp-action="ZmanimHelp" class="btn btn-primary">Zemanim Api help</a>
+		<a asp-action="CalendarHelp" class="btn btn-primary">Jewish Calendar Api Help</a>
+			</div>
+			</div>
+    </body>
+</html>
