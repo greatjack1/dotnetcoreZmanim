@@ -2,6 +2,7 @@
 using Zmanim.JewishCalendar;
 namespace zmanimapi.Models
 {
+    [Serializable]
     public class CalendarTimesViewModel
     {
         public CalendarTimesViewModel()

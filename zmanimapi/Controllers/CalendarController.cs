@@ -2,12 +2,15 @@
 using Microsoft.AspNetCore.Mvc;
 using zmanimapi.Models;
 using zmanimapi.Services;
-
+using System.Xml.Serialization;
+using System.IO;
+using System.Text;
+using YAXLib;
 namespace zmanimapi.Controllers
 {
     public class CalendarController : Controller
     {
-        public JsonResult Index(String date, bool? isIsrael = null){
+        public Object Index(String date, bool? isIsrael = null, String format = "json"){
             //verify that we received all of the parameters
             DateTime validDate;
             //if the date string cant be parsed then return that a valid date must be provided
@@ -24,9 +27,17 @@ namespace zmanimapi.Controllers
             model.isIsrael = isIsrael.GetValueOrDefault();
             //pass the model to the service to generate the calendar times
             CalendarService service = new CalendarService(model);
-
-            //return the Calendar View model object
-            return Json(service.getViewModel());
+            //get a instance of the viewmodel to return
+            CalendarTimesViewModel vm = service.getViewModel();
+            //return the proper format based on the format param
+            if (format=="json"){
+                return Json(vm);
+            } else{
+                //use xml serilization
+                YAXSerializer serl = new YAXSerializer(vm.GetType());
+                return serl.Serialize(vm);
+            }
+          
         }
     
     }
