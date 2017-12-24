@@ -51,7 +51,8 @@ namespace zmanimapi
                 routes.MapRoute("MainHelpRoute", "help", defaults: new { controller = "Help", action = "Help" });
                 routes.MapRoute("ZmanimHelp", "help/zmanim", defaults: new { controller = "Help", action = "ZmanimHelp" });
                 routes.MapRoute("CalendarHelp", "help/calendar", defaults: new { controller = "Help", action = "CalendarHelp" });
-         //       routes.MapRoute("default", "{controller}/{action}");
+                routes.MapRoute("GoogleAssistant", "actions/ga", defaults: new { controller = "Ga", action = "Post" });
+                //       routes.MapRoute("default", "{controller}/{action}");
                 routes.MapRoute("Spa", "{*url}", defaults: new { controller = "Help", action = "Help" });
             });
         }
