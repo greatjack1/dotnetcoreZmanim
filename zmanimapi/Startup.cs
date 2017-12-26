@@ -53,7 +53,7 @@ namespace zmanimapi
                 routes.MapRoute("CalendarHelp", "help/calendar", defaults: new { controller = "Help", action = "CalendarHelp" });
                 routes.MapRoute("GoogleAssistant", "actions/ga", defaults: new { controller = "Ga", action = "Post" });
                 //       routes.MapRoute("default", "{controller}/{action}");
-                routes.MapRoute("Spa", "{*url}", defaults: new { controller = "Help", action = "Help" });
+                routes.MapRoute("Spa", "{*url}", defaults: new { controller = "Help", action = "Redirect" });
             });
         }
     }

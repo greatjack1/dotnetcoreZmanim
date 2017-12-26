@@ -5,6 +5,8 @@ namespace zmanimapi.Controllers
 {
     public class HelpController : Controller
     {
+        public RedirectToActionResult Redirect() => RedirectToAction("Help");
+
         public IActionResult Help(){
             return View();
         }
