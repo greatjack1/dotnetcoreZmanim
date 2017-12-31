@@ -26,19 +26,20 @@ namespace zmanimapi.Services
                 Console.WriteLine("Date was submitted so using the date of" + model.date.ToString());
                 czc = new ComplexZmanimCalendar(model.date.GetValueOrDefault(), location);
             //If the request wanted basic mode then use basic zmanim, else print everything
-            if (model.mode == "basic") { 
+            if (model.mode == "basic") {
                 //insert the zmanim into the model so the controller can create a view from it
-                model.zmanimList.Add("Alos16point1Degrees", czc.GetAlos16Point1Degrees());
+                model.zmanimList.Add("Alos 16point 1Degrees", czc.GetAlos16Point1Degrees());
                 model.zmanimList.Add("Sunrise", czc.GetSunrise());
-                model.zmanimList.Add("SofZmanShemaMGA", czc.GetSofZmanShmaMGA());
-                model.zmanimList.Add("SofZmanShmaGra", czc.GetSofZmanShmaGRA());
-                model.zmanimList.Add("SofZmanTefilahGra", czc.GetSofZmanTfilaGRA());
+                model.zmanimList.Add("Sof Zman Shema MGA", czc.GetSofZmanShmaMGA());
+                model.zmanimList.Add("Sof Zman Shema Gra", czc.GetSofZmanShmaGRA());
+                model.zmanimList.Add("Sof Zman Tefilah Gra", czc.GetSofZmanTfilaGRA());
+                model.zmanimList.Add("Sof Zman Tefilah MGA", czc.GetSofZmanTfilaMGA72Minutes());
                 model.zmanimList.Add("Chatzos", czc.GetChatzos());
-                model.zmanimList.Add("MinchaGedolah", czc.GetMinchaGedola());
+                model.zmanimList.Add("Mincha Gedolah", czc.GetMinchaGedola());
                 model.zmanimList.Add("PlagHamincha", czc.GetPlagHamincha());
                 model.zmanimList.Add("Shkia", czc.GetSunset());
                 model.zmanimList.Add("Tzais", czc.GetTzais());
-                model.zmanimList.Add("CandleLighting", czc.GetCandleLighting());
+                model.zmanimList.Add("Candle Lighting", czc.GetCandleLighting());
             }
             else
             {
