@@ -81,11 +81,11 @@ namespace zmanimapi.Controllers
                 }
             }
             catch (Exception ex)
-           {
-                   Console.WriteLine("Error:" + ex.Message);
+          {
+                  Console.WriteLine("Error:" + ex.Message);
                      //return a error message
-                return "There was a error generating the zmanim, please ensure all of your input parameters are correct and try again later";
-           }
+               return "There was a error generating the zmanim, please ensure all of your input parameters are correct and try again later";
+          }
 
 
         }

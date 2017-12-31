@@ -28,6 +28,21 @@ namespace zmanimapi.Services
             //If the request wanted basic mode then use basic zmanim, else print everything
             if (model.mode == "basic") {
                 //insert the zmanim into the model so the controller can create a view from it
+                model.zmanimList.Add("Alos16point1Degrees", czc.GetAlos16Point1Degrees());
+                model.zmanimList.Add("Sunrise", czc.GetSunrise());
+                model.zmanimList.Add("SofZmanShemaMGA", czc.GetSofZmanShmaMGA());
+                model.zmanimList.Add("SofZmanShemaGra", czc.GetSofZmanShmaGRA());
+                model.zmanimList.Add("SofZmanTefilahGra", czc.GetSofZmanTfilaGRA());
+                model.zmanimList.Add("SofZmanTefilahMGA", czc.GetSofZmanTfilaMGA72Minutes());
+                model.zmanimList.Add("Chatzos", czc.GetChatzos());
+                model.zmanimList.Add("MinchaGedolah", czc.GetMinchaGedola());
+                model.zmanimList.Add("PlagHamincha", czc.GetPlagHamincha());
+                model.zmanimList.Add("Shkia", czc.GetSunset());
+                model.zmanimList.Add("Tzais", czc.GetTzais());
+                model.zmanimList.Add("CandleLighting", czc.GetCandleLighting());
+            }
+            //This is a special mode for shub to use zmanim sites. This breaks xml due to spaces but works well with json
+            else if(model.mode=="shub"){
                 model.zmanimList.Add("Alos 16point 1Degrees", czc.GetAlos16Point1Degrees());
                 model.zmanimList.Add("Sunrise", czc.GetSunrise());
                 model.zmanimList.Add("Sof Zman Shema MGA", czc.GetSofZmanShmaMGA());
@@ -36,10 +51,11 @@ namespace zmanimapi.Services
                 model.zmanimList.Add("Sof Zman Tefilah MGA", czc.GetSofZmanTfilaMGA72Minutes());
                 model.zmanimList.Add("Chatzos", czc.GetChatzos());
                 model.zmanimList.Add("Mincha Gedolah", czc.GetMinchaGedola());
-                model.zmanimList.Add("PlagHamincha", czc.GetPlagHamincha());
+                model.zmanimList.Add("Plag Hamincha", czc.GetPlagHamincha());
                 model.zmanimList.Add("Shkia", czc.GetSunset());
                 model.zmanimList.Add("Tzais", czc.GetTzais());
                 model.zmanimList.Add("Candle Lighting", czc.GetCandleLighting());
+
             }
             else
             {

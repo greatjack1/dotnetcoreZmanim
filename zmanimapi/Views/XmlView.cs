@@ -33,7 +33,7 @@ namespace zmanimapi.Views
             doc.AppendChild(rootelem);
             //create the date element
             XmlElement element1 = doc.CreateElement(string.Empty, "Date", string.Empty);
-            XmlText dateText = doc.CreateTextNode(String.Format("{0:MM/dd/yyyy}", zmanim["Alos16point1Degrees"].GetValueOrDefault()));
+            XmlText dateText = doc.CreateTextNode(String.Format("{0:MM/dd/yyyy}", zmanim["Sunrise"].GetValueOrDefault()));
             element1.AppendChild(dateText);
             rootelem.AppendChild(element1);
 
